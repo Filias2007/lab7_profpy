@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "shop"
+version = "0.7.0"
+description = "E-Commerce domain system with SQLite persistence layer for Lab 07"
+authors = [{ name = "Maksym Filias" }]
+dependencies = [
+    "sqlalchemy>=2.0.0",
+    "alembic>=1.13.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-cov>=5.0.0",
+    "pytest-asyncio>=0.23.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-ra -v --strict-markers"
+markers = [
+    "integration: integration tests suite",
+]
